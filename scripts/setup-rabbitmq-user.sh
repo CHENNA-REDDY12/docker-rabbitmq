@@ -1,17 +1,14 @@
-#!/bin/bash
+#!/bin/sh
 
-## todo: move out into sensu-server image
+# Create Rabbitmq user
+( sleep 5 ; \
+rabbitmqctl add_user $RABBITMQ_USER $RABBITMQ_PASSWORD 2>/dev/null ; \
+rabbitmqctl set_user_tags $RABBITMQ_USER administrator ; \
+rabbitmqctl set_permissions -p / $RABBITMQ_USER  ".*" ".*" ".*" ; \
+echo "*** User '$RABBITMQ_USER' with password '$RABBITMQ_PASSWORD' completed. ***" ; \
+echo "*** Log in the WebUI at port 15672 (example: http:/localhost:15672) ***") &
 
-echo "vhost: $RABBITMQ_VHOST \n\n" >> /var/log/rabbitmq/env-variables.out
-echo "user $RABBITMQ_USER\n\n" >> /var/log/rabbitmq/env-variables.out
-echo "pass: $RABBITMQ_PASS \n\n" >> /var/log/rabbitmq/env-variables.out
-
-echo "rabbitmqctl add_user $RABBITMQ_USER $RABBITMQ_PASS" > /var/log/rabbitmq/add-user-command.out
-
-# Setup rabbitmq
-rabbitmqctl add_vhost $RABBITMQ_VHOST > /var/log/rabbitmq/add-vhost.out
-rabbitmqctl add_user $RABBITMQ_USER $RABBITMQ_PASS > /var/log/rabbitmq/add-user.out
-rabbitmqctl set_permissions -p $RABBITMQ_VHOST $RABBITMQ_USER ".*" ".*" ".*" > /var/log/rabbitmq/set-permissions.out
-rabbitmqctl set_user_tags $RABBITMQ_USER administrator > /var/log/rabbitmq/set-user-tags.out
-
-exit 0
+# $@ is used to pass arguments to the rabbitmq-server command.
+# For example if you use it like this: docker run -d rabbitmq arg1 arg2,
+# it will be as you run in the container rabbitmq-server arg1 arg2
+rabbitmq-server $@

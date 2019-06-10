@@ -4,6 +4,10 @@ FROM ubuntu:14.04
 RUN apt-get update && apt-get install -y rabbitmq-server
 RUN rabbitmq-plugins enable rabbitmq_management
 
+# Define environment variables.
+ENV RABBITMQ_USER user
+ENV RABBITMQ_PASSWORD user
+
 # Add scripts
 RUN mkdir -p /opt/rabbitmq/bin/
 ADD scripts/start-rabbitmq-server.sh /opt/rabbitmq/bin/start-rabbitmq-server.sh
