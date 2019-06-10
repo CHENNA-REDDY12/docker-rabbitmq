@@ -1,7 +1,7 @@
 #!/bin/bash
 
 set -e
-
+# it is deleted file
 echo "setting up configs and rabbitmq user"
 /opt/rabbitmq/bin/setup-rabbitmq-user.sh
 /opt/rabbitmq/bin/write-erlang-cookie.sh

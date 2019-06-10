@@ -1,5 +1,5 @@
 #!/bin/bash
-
+#
 if [[ -z $ERLANG_COOKIE ]]; then
     exit 1;
 fi;

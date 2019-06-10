@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Create Rabbitmq user
+# Create Rabbitmq user for login
 ( sleep 5 ; \
 rabbitmqctl add_user $RABBITMQ_USER $RABBITMQ_PASSWORD 2>/dev/null ; \
 rabbitmqctl set_user_tags $RABBITMQ_USER administrator ; \
