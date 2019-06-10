@@ -4,7 +4,7 @@ Brings up a rabbitmq queue for use by other containers.
 
 ## Usage
 
-We've hosted this image over on the [docker hub](https://github.com/CHENNA-REDDY12/docker-rabbitmq.git).
+We have hosted this image over on the [docker hub](https://github.com/CHENNA-REDDY12/docker-rabbitmq.git).
 
 
 
