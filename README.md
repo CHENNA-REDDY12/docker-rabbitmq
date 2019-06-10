@@ -12,11 +12,11 @@ We have hosted this image over on the [docker hub](https://github.com/CHENNA-RED
 
 --rabbitmq--
 
-- RABBITMQ_USER
-- RABBITMQ_PASS
-- RABBITMQ_NODENAME (defaults to eth0 ip)
-- RABBITMQ_VHOST (ex. "/sensu")
-- RABBITMQ_PORT (defaults to 5672)
+- Rabbitmq_USER
+- Rabbit_PASS
+- Rabbitmq_NODENAME (defaults to eth0 ip)
+- Rabbitmq_VHOST (ex. "/sensu")
+- Rabbitmq_PORT (defaults to 5672)
 
 ## Ports exposed
 
